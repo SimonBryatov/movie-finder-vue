@@ -1,30 +1,43 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <Header />>
-    <HelloWorld/>
+    <v-app>
+    <v-layout column> 
+    <Header />
+    <MainView />
+    </v-layout>
+    </v-app>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import MainView from './components/MainView'
 import Header from './components/Header'
+import MovieCard from "./components/MovieCard"
+import { mapActions } from 'vuex';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld, Header
+   Header, MainView, MovieCard
+  },
+
+  methods: {...mapActions(['getNextPageByCategory'])
+    },
+  created() {
+    // this.$store.dispatch("getPopularMovies");
+    this.getNextPageByCategory("popular");
   }
 }
 </script>
 
 <style>
+body {
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #06e023;
 }
 </style>
