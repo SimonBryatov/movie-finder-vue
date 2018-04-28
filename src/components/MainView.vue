@@ -1,49 +1,37 @@
 <template>
   <v-container class="main-view" column>
-     <v-btn
-              color="pink"
-              dark
-              small
-              absolute
-              bottom
-              left
-              fab
-            ></v-btn>
-       <v-tabs
-        centered
-        grow
-        color="pink"
-        slot="extension"
-        slider-color="yellow"
-      >
-        <v-tab class = "main-view__option" @click="setCategory('popular')">
-          Popular
-        </v-tab>
-         <v-tab class = "main-view__option" @click="setCategory('upcoming')">
-          Upcoming
-        </v-tab>
-         <v-tab class = "main-view__option" @click="setCategory('topRated')">
-          Top Rated
-        </v-tab>
-      </v-tabs>
-    <v-container class = "movie-cards__container" fluid grid-list-xl>
+    <v-btn color="pink" dark small absolute bottom left fab></v-btn>
+    <v-tabs centered grow color="pink" slot="extension" slider-color="yellow">
+      <v-tab class="main-view__option" @click="setCategory('popular')">
+        Popular
+      </v-tab>
+      <v-tab class="main-view__option" @click="setCategory('upcoming')">
+        Upcoming
+      </v-tab>
+      <v-tab class="main-view__option" @click="setCategory('topRated')">
+        Top Rated
+      </v-tab>
+    </v-tabs>
+    <v-container class="movie-cards__container" fluid grid-list-xl>
       <v-layout row wrap>
         <v-flex xs3 md2 class="" v-for="n in this.movies.movieLists.list" :key="n.id">
-          <movie-card :movie-info="n" />
+          <movie-card :movieInfo="n"></movie-card>
         </v-flex>
-         <infinite-loading @infinite="infiniteHandler" spinner = "spiral"></infinite-loading>
-       </v-layout>
+        <infinite-loading @infinite="infiniteHandler" spinner="spiral"></infinite-loading>
+      </v-layout>
     </v-container>
   </v-container>
 </template>
+
 
 <script>
 import { mapState, mapActions, mapMutations } from 'vuex';
 import InfiniteLoading from 'vue-infinite-loading';
 import MovieCard from "./MovieCard"
+console.log(MovieCard)
 export default {
   name: 'MainView',
-  components: {MovieCard}, 
+  components: {MovieCard, InfiniteLoading}, 
   data () {
     return {
       chosenCategory: 'popular'
@@ -66,9 +54,6 @@ export default {
     },
     ...mapMutations([])
   },
-  components: {
-    InfiniteLoading
-  }
 }
 </script>
 
@@ -99,7 +84,8 @@ background-color: rgb(31, 31, 31);
 
 
 .movie-card__info-cover {
-  background-color: rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, .6) !important;
+  color: white !important;
   visibility: hidden;
 }
 

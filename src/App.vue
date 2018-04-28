@@ -4,6 +4,7 @@
     <v-layout column> 
     <Header />
     <MainView />
+    <!-- <movie-card >asdasdsd</movie-card> -->
     </v-layout>
     </v-app>
   </div>
@@ -12,7 +13,8 @@
 <script>
 import MainView from './components/MainView'
 import Header from './components/Header'
-import MovieCard from "./components/MovieCard"
+import MovieCard from './components/MovieCard'
+// console.log("Movie", MovieCard)
 import { mapActions } from 'vuex';
 
 export default {

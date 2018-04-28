@@ -4,6 +4,7 @@ import Vue from 'vue'
 import store from './store/index.js'
 import Vuetify from 'vuetify'
 import App from './App'
+// import MovieCard from './components/MovieCard'
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.config.productionTip = false
