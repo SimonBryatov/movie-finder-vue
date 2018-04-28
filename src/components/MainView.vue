@@ -14,7 +14,7 @@
     </v-tabs>
     <v-container class="movie-cards__container" fluid grid-list-xl>
       <v-layout row wrap>
-        <v-flex xs3 md2 class="" v-for="n in this.movies.movieLists.list" :key="n.id">
+        <v-flex xs2 md2 class="" v-for="n in this.movies.movieLists.list" :key="n.id">
           <movie-card :movieInfo="n"></movie-card>
         </v-flex>
         <infinite-loading @infinite="infiniteHandler" spinner="spiral"></infinite-loading>
@@ -61,41 +61,17 @@ export default {
 <style>
 .main-view {
 background-size: cover;
-width: 100%;
+width: 100%; 
 /* height: 750px; */
 /* background: url(https://images.pexels.com/photos/131637/pexels-photo-131637.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center center; */
 background-color: rgb(31, 31, 31);
 }
 
 .movie-cards__container{
-  width: 75%;
-}
-
-.movie-card {
-  background-color: white;
-    transition: .2s outline-color;  
-  
-}
-
-.movie-card:hover {
-  outline: 5px solid rgba(255, 255, 255, 0.897);
-   transition: .2s outline-color;
+  /* width: 75%; */
 }
 
 
-.movie-card__info-cover {
-  background-color: rgba(0, 0, 0, .6) !important;
-  color: white !important;
-  visibility: hidden;
-}
-
-.movie-card__info-cover:hover {
-  
-}
-
-.visible {
-  visibility: visible; 
-}
 
 .main-view__option{
   font-size: 3vh;

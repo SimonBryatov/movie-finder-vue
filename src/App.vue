@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-app>
-    <v-layout column> 
+    <v-layout class="app__layout" column fill-height> 
     <Header />
     <MainView />
     <!-- <movie-card >asdasdsd</movie-card> -->
@@ -42,4 +42,7 @@ body {
   text-align: center;
   color: #06e023;
 }
+/* .app__layout {
+  width: 40%;
+} */
 </style>
