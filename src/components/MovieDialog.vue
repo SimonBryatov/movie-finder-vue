@@ -1,10 +1,10 @@
 <template>
 <v-layout row justify-center>
-    <v-btn color="primary" dark @click.native.stop="dialog = true">Open Dialog</v-btn>
-    <v-dialog v-model="dialog" max-width="290">
+    <v-dialog v-model="movieDialog" max-width="500px">
       <v-card>
-        <v-card-title class="headline">Use Google's location service?</v-card-title>
-        <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
+       <v-card-media :src="'http://image.tmdb.org/t/p/w500' + observedMovieInfo.poster_path"  height="200px"></v-card-media>
+        <v-card-title class="headline">{{observedMovieInfo.title}}</v-card-title>
+        <v-card-text>{{observedMovieInfo.overview}}</v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="green darken-1" flat="flat" @click.native="dialog = false">Disagree</v-btn>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
 export default {
     name: "MovieDialog",
     props: ["movieInfo"],
@@ -23,10 +24,20 @@ export default {
         return {
             dialog: false
         }
+    },
+    computed: {
+      movieDialog:{
+        get(){ return this.$store.state.movieDialog; },
+        set(){ this.$store.commit("toggleDialog", "");},
+    },
+     ...mapState(['observedMovieInfo'])
     }
     
 }
 </script>
 
 <style>
+/* .cl {
+  background-color: aqua;
+} */
 </style>

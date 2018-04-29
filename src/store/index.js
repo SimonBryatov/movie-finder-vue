@@ -16,7 +16,15 @@ export default new Vuex.Store({
   state: {
     showMovieCard: false,
     searchString: '',
+    movieDialog: false,
+    observedMovieInfo: '',
     popularMovies: {}
+  },
+  mutations: {
+    toggleDialog (state, info) {
+      state.movieDialog = !state.movieDialog
+      state.observedMovieInfo = info
+    }
   }
 
 })
