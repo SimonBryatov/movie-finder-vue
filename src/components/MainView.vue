@@ -1,6 +1,8 @@
 <template>
-  <v-container class="main-view" column>
-    <v-btn color="pink" dark small absolute bottom left fab></v-btn>
+  <v-container class="main-view" fluid>
+    <v-layout row wrap>
+      <MovieDialog />
+      <v-flex xs12>
     <v-tabs centered grow color="pink" slot="extension" slider-color="yellow">
       <v-tab class="main-view__option" @click="setCategory('popular')">
         Popular
@@ -12,6 +14,8 @@
         Top Rated
       </v-tab>
     </v-tabs>
+    </v-flex>
+    <v-flex xs10 offset-xs1>
     <v-container class="movie-cards__container" fluid grid-list-xl>
       <v-layout row wrap>
         <v-flex xs2 md2 class="" v-for="n in this.movies.movieLists.list" :key="n.id">
@@ -20,6 +24,8 @@
         <infinite-loading @infinite="infiniteHandler" spinner="spiral"></infinite-loading>
       </v-layout>
     </v-container>
+    </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
@@ -28,10 +34,11 @@
 import { mapState, mapActions, mapMutations } from 'vuex';
 import InfiniteLoading from 'vue-infinite-loading';
 import MovieCard from "./MovieCard"
+import MovieDialog from './MovieDialog'
 console.log(MovieCard)
 export default {
   name: 'MainView',
-  components: {MovieCard, InfiniteLoading}, 
+  components: {MovieCard, MovieDialog, InfiniteLoading}, 
   data () {
     return {
       chosenCategory: 'popular'
@@ -61,7 +68,9 @@ export default {
 <style>
 .main-view {
 background-size: cover;
-width: 100%; 
+/* width: 100%;  */
+/* padding: 0; */
+/* margin: 0; */
 /* height: 750px; */
 /* background: url(https://images.pexels.com/photos/131637/pexels-photo-131637.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center center; */
 background-color: rgb(31, 31, 31);

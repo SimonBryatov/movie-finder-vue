@@ -1,8 +1,8 @@
 <template>
 <v-parallax class = "header header__image" src="https://images.pexels.com/photos/375885/pexels-photo-375885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
     <v-container fill-height class = "">
-      <v-layout align-center>
-        <v-flex class = "header__content">
+      <v-layout row wrap>
+        <v-flex class="header__content">
           <h3 class="display-3">Muvie</h3>
           <span class="subheading">{{quote}}</span>
           <v-divider class="my-3"></v-divider>
@@ -51,7 +51,7 @@ export default {
 
 <style>
 .header {
-    top: 0px;
+    /* top: 0px; */
     color: rgb(255, 255, 255);
     font-size: 30px;
 }

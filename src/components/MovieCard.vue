@@ -1,5 +1,5 @@
 <template>
-  <v-card class="movie-card" height="30vmax" width="100%" hover @mouseover="visible = true" @mouseleave="visible = false">
+  <v-card class="movie-card" height="20vw" width="100%" hover @mouseover="visible = true" @mouseleave="visible = false">
     <v-card-media :src="'http://image.tmdb.org/t/p/w500' + this.movieInfo.poster_path" height="100%" width="100%">
       <v-container :class="{'visible': visible, 'movie-card__info-cover': true}" fill-height fluid justify-center>
         <v-layout column fill-height>
@@ -8,7 +8,7 @@
             </v-flex>
           
             <v-layout row>
-              <v-btn flat color="orange">Explore</v-btn>
+              <v-btn flat color="orange" @click="openDialog(this.movieInfo)">Explore</v-btn>
               <v-btn flat color="orange" @click="addBookmark()">
                 <v-icon large>{{this.isBookmarked ? "bookmark" : "bookmark_border"}}</v-icon>
               </v-btn>
@@ -25,7 +25,7 @@
 <script>
 export default {
     name: "MovieCard",
-    props: ["movieInfo"],
+    props: ["movieInfo", "openDialog"],
     data() { 
         return {
         visible: false,

@@ -1,11 +1,18 @@
 <template>
   <div id="app">
     <v-app>
-    <v-layout class="app__layout" column fill-height> 
+    <v-container class="app__container" fluid fill-height>
+    <v-layout class="app__layout" row wrap> 
+    <v-flex xs12>
     <Header />
+    </v-flex>
+    <v-flex xs12>
     <MainView />
+    </v-flex>
+    <v-btn color="pink" dark md fixed bottom right fab @click="$vuetify.goTo(0)"><v-icon>keyboard_arrow_up</v-icon></v-btn>
     <!-- <movie-card >asdasdsd</movie-card> -->
     </v-layout>
+    </v-container>
     </v-app>
   </div>
 </template>
@@ -20,7 +27,7 @@ import { mapActions } from 'vuex';
 export default {
   name: 'App',
   components: {
-   Header, MainView, MovieCard
+   Header, MainView
   },
 
   methods: {...mapActions(['getNextPageByCategory'])
@@ -42,7 +49,7 @@ body {
   text-align: center;
   color: #06e023;
 }
-/* .app__layout {
-  width: 40%;
-} */
+.app__container {
+  padding: 0;
+}
 </style>
