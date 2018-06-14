@@ -1,7 +1,7 @@
 <template>
   <v-card class="movie-card" height="20vw" width="100%" hover @mouseover="visible = true" @mouseleave="visible = false">
     <v-card-media :src="'http://image.tmdb.org/t/p/w500' + this.movieInfo.poster_path" height=100% width="100%">
-      <v-container :class="{'visible': true, 'movie-card__info-cover': true}" fluid width="50%" fill-height>
+      <v-container v-if="visible" fluid fill-height>
         <v-layout>
             <v-flex xs1>
           <div>{{this.movieInfo.title}}</div>

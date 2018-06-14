@@ -1,10 +1,15 @@
 <template>
 <v-parallax class = "header header__image" src="https://images.pexels.com/photos/375885/pexels-photo-375885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-    <v-container fill-height class = "">
-      <v-layout row wrap>
-        <v-flex class="header__content">
+    <v-container fill-height class="header__content">
+      <v-layout column >
+        <v-spacer></v-spacer>
+        <v-flex xs3>
           <h3 class="display-3">Muvie</h3>
+        </v-flex>
+        <v-flex xs1 >
           <span class="subheading">{{quote}}</span>
+           </v-flex>
+          <v-flex xs1 >
           <v-divider class="my-3"></v-divider>
           <v-menu dark offset-y class= "search-field__container" transition="slide-y-reverse-transition">
             <input v-model="searchString" type="text" slot="activator" class="search-field" placeholder="Search for awesome movies"/>
@@ -14,7 +19,7 @@
         </v-list-tile>
       </v-list>
     </v-menu>
-        </v-flex>
+     </v-flex>
       </v-layout>
     </v-container>
   </v-parallax>

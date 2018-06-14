@@ -18,7 +18,7 @@
     <v-flex xs10 offset-xs1>
     <v-container class="movie-cards__container" fluid grid-list-xl>
       <v-layout row wrap>
-        <v-flex xs2 md2 class="" v-for="n in this.movies.movieLists.list" :key="n.id">
+        <v-flex xs4 md3 lg2 class="" v-for="n in this.movies.movieLists.list" :key="n.id">
           <movie-card :movieInfo="n"></movie-card>
         </v-flex>
         <infinite-loading @infinite="infiniteHandler" spinner="spiral"></infinite-loading>
