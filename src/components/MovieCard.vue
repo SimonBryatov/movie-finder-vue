@@ -1,19 +1,19 @@
 <template>
   <v-card class="movie-card" height="20vw" width="100%" hover @mouseover="visible = true" @mouseleave="visible = false">
     <v-card-media :src="'http://image.tmdb.org/t/p/w500' + this.movieInfo.poster_path" height=100% width="100%">
-      <v-container v-if="visible" fluid fill-height>
-        <v-layout>
-            <v-flex xs1>
-          <div>{{this.movieInfo.title}}</div>
+      <v-container v-if="visible" class="movie-card__info-cover" @click="toggleDialog(movieInfo)" fluid fill-height>
+        <v-layout column>
+            <v-flex xs10>
+          <div class="subheading">{{this.movieInfo.title}}</div>
             </v-flex>
-            <!-- <v-spacer></v-spacer> -->
-            <v-flex>
-            <v-layout class = 'card-actions__container'>
+            <v-flex xs3></v-flex>
+            <v-flex xs5>
+            <v-layout width="100%" column>
                 <v-flex>
-              <v-btn flat color="green darken-1" @click="toggleDialog(movieInfo)">Explore</v-btn>
+              <v-btn flat color="green darken-1">Explore</v-btn>
                 </v-flex>
                 <v-flex>
-              <v-btn flat color="green darken-1" @click="addBookmark()">
+              <v-btn flat color="green darken-1" @click.stop="addBookmark()">
                 <v-icon large>{{this.isBookmarked ? "bookmark" : "bookmark_border"}}</v-icon>
               </v-btn>
               </v-flex>
@@ -69,9 +69,11 @@ export default {
 
 
 .movie-card__info-cover {
-  background-color: rgba(0, 0, 0, .6) !important;
+  background-color: rgba(0, 0, 0, 0.808) !important;
   color: white !important;
-  display: none !important;
+  /* width: 100% !important; */
+  /* height: 100% !important; */
+  /* display: none !important; */
 }
 
 .movie-card__info-cover:hover {

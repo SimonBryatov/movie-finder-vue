@@ -1,8 +1,8 @@
 <template>
 <v-layout row justify-center>
-    <v-dialog v-model="movieDialog" max-width="500px">
+    <v-dialog v-model="movieDialog" max-width="60%">
       <v-card>
-       <v-card-media :src="'http://image.tmdb.org/t/p/original' + observedMovieInfo.poster_path"  height="200px"></v-card-media>
+       <v-card-media :src="'http://image.tmdb.org/t/p/original' + observedMovieInfo.poster_path"  height="30vmax"></v-card-media>
         <v-card-title class="headline">{{observedMovieInfo.title}}</v-card-title>
         <v-card-text>{{observedMovieInfo.overview}}</v-card-text>
         <v-card-actions>

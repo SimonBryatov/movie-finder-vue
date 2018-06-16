@@ -11,7 +11,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "lodash": "^4.17.10",
     "movie-quotes": "^1.0.0",
+    "npm": "^6.1.0",
     "themoviedb-javascript-library": "^1.0.0",
     "vue": "^2.5.2",
     "vue-infinite-loading": "^2.3.1",

@@ -16,6 +16,7 @@ export default new Vuex.Store({
   state: {
     showMovieCard: false,
     searchString: '',
+    searchResults: {},
     movieDialog: false,
     observedMovieInfo: '',
     popularMovies: {}

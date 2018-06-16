@@ -16,6 +16,9 @@ export default {
     updateSearchString (state, value) {
       state.searchString = value
     },
+    updateSearchResults (state, value) {
+      state.searchResults = JSON.parse(value).results
+    },
     updateMoviesList (state, data) {
     //   console.log(this.state.movieLists)
       state.movieLists.list.push(...data)
@@ -35,6 +38,18 @@ export default {
   },
 
   actions: {
+    searchMovieByName(ctx, mName) {
+      mName = encodeURI(mName)
+      console.log(mName)
+      let cbSuccess = (res) => {
+        ctx.commit("updateSearchResults", res)
+      }
+      let cbError = (err) => {
+
+      }
+      movies.search.getMovie({"query": mName}, cbSuccess, cbError)  
+    },
+
     setCategory ({state, commit, dispatch}, category) {
       commit('updateCategory', category)
       dispatch('getNextPageByCategory', category)
